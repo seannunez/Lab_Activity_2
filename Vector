@@ -1,0 +1,76 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+# declare the vectors
+vector1 = np.array([0, 10])
+vector2 = np.array([-12, 5])
+vector3 = np.array([-12, 11])
+vector4 = np.array([11, 6])
+vector5 = np.array([-5, 3])
+
+# addition and subtraction
+addition = np.add(vector1, vector2)
+result1 = addition
+print("The sum of the 1st and 2nd vector is:", result1)
+
+subtraction = np.subtract(result1, vector3)
+result2 = subtraction
+print("The difference of the sum and subtract to vector 3 is:", result2)
+
+# multiplication and division
+multiply = np.multiply(vector2, vector3)
+result3 = multiply
+print("The product of the 2nd and 3rd vector is:", result3)
+
+divide = np.divide(result3, vector4)
+result4 = divide
+print("The quotient of the product and the vector 4 is:", result4)
+
+# square and square Root
+square = np.square(vector2)
+resultS = square
+squareroot = np.sqrt(resultS)
+resultrt = squareroot
+print("The square of vector 2 is: ", resultS)
+print("The square root of vector 2 is: ", resultrt)
+
+# summation
+summation = np.sum(vector2)
+resultsum = summation
+print("The summation of vector 2 is:", resultsum)
+
+# visuals of vectors data and results
+plt.title("Visual")
+plt.xlim(-20, 20)
+plt.ylim(-20, 20)
+
+# vectors
+plt.scatter(vector1[0], vector1[1], label="Vector 1",   c="navy")
+plt.scatter(vector2[0], vector2[1], label="Vector 2",   c="springgreen")
+plt.scatter(vector3[0], vector3[1], label="Vector 3",   c="darkviolet")
+plt.scatter(vector4[0], vector4[1], label="Vector 4",   c="darkorange")
+plt.scatter(vector5[0], vector5[1], label="Vector 5",   c="yellow")
+
+# results
+plt.scatter(addition[0],     addition[1],     label="Addition",         c="cyan")
+plt.scatter(subtraction[0],  subtraction[1],  label="Subtraction",      c="fuchsia")
+plt.scatter(divide[0],       divide[1],       label="Division",         c="red")
+plt.scatter(multiply[0],     multiply[1],     label="Multiplication",   c="peru")
+plt.scatter(square[0],       square[1],       label="Square",           c="black")
+plt.scatter(squareroot[0],   squareroot[1],   label="Square Root",      c="blue")
+
+# resultant Vectors
+plt.quiver(vector1[0], vector1[1], vector2[0], vector2[1],   angles="xy", scale_units="xy", scale=1, color="red")
+plt.quiver(0, 0, vector1[0], vector1[1],                     angles="xy", scale_units="xy", scale=1, color="green")
+vector6 = vector1 + vector2
+plt.quiver(0, 0, vector6[0], vector6[1],                     angles="xy", scale_units="xy", scale=1, color="blue")
+
+R_mag = np.sqrt(np.sum(vector1**2+vector2**2))
+rise = vector6[1]
+run = vector6[0]
+slope = rise / run
+print("Slope is: ", slope)
+
+plt.grid()
+plt.legend()
+plt.show()
